@@ -48,7 +48,7 @@ const styles = {
       ...containerStyle,
     },
     text: {
-      color: Color.white,
+      color: '#1e231c',
       ...textStyle,
     },
   }),
