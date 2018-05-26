@@ -222,6 +222,9 @@ class GiftedChat extends React.Component {
       : this.props.minInputToolbarHeight;
   }
   calculateInputToolbarHeight(composerHeight) {
+    if (!this.props.shouldRenderInputToolbar) {
+      return 0;
+    }
     return composerHeight + (this.getMinInputToolbarHeight() - MIN_COMPOSER_HEIGHT);
   }
 
@@ -448,6 +451,9 @@ class GiftedChat extends React.Component {
     if (this.props.renderInputToolbar) {
       return this.props.renderInputToolbar(inputToolbarProps);
     }
+    if (!this.props.shouldRenderInputToolbar) {
+      return null;
+    }
     return (
       <InputToolbar
         {...inputToolbarProps}
@@ -542,6 +548,7 @@ GiftedChat.defaultProps = {
   renderFooter: null,
   renderChatFooter: null,
   renderInputToolbar: null,
+  shouldRenderInputToolbar: null,
   renderComposer: null,
   renderActions: null,
   renderSend: null,
@@ -593,6 +600,7 @@ GiftedChat.propTypes = {
   renderFooter: PropTypes.func,
   renderChatFooter: PropTypes.func,
   renderInputToolbar: PropTypes.func,
+  shouldRenderInputToolbar: PropTypes.bool,
   renderComposer: PropTypes.func,
   renderActions: PropTypes.func,
   renderSend: PropTypes.func,
