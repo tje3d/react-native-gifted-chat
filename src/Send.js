@@ -15,7 +15,7 @@ export default function Send({ text, containerStyle, onSend, children, textStyle
         }}
         accessibilityTraits="button"
       >
-        <View>{children || <Text style={[styles.text, textStyle]}>{label}</Text>}</View>
+        <View>{children || <Text style={[styles.text, textStyle, {color: "#1e231c"}]}>{label}</Text>}</View>
       </TouchableOpacity>
     );
   }
