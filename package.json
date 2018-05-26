@@ -59,7 +59,8 @@
     "react-native-lightbox": "^0.7.0",
     "react-native-parsed-text": "^0.0.20",
     "shallowequal": "1.0.2",
-    "uuid": "3.2.1"
+    "uuid": "3.2.1",
+    "moment-jalaali": "^0.7.3"
   },
   "peerDependencies": {
     "prop-types": "*",
