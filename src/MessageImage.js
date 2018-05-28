@@ -28,8 +28,8 @@ export default function MessageImage({
 const styles = StyleSheet.create({
   container: {},
   image: {
-    width: 150,
-    height: 100,
+    width: 250,
+    height: 150,
     borderRadius: 3
   },
   imageActive: {
