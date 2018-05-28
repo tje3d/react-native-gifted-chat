@@ -3,7 +3,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Image, StyleSheet, View, ViewPropTypes } from 'react-native';
-import Lightbox from 'react-native-lightbox';
+import ZoomImage from 'react-native-zoom-image';
+import {Easing} from 'react-native';
 
 export default function MessageImage({
   containerStyle,
@@ -14,18 +15,12 @@ export default function MessageImage({
 }) {
   return (
     <View style={[styles.container, containerStyle]}>
-      <Lightbox
-        activeProps={{
-          style: styles.imageActive,
-        }}
-        {...lightboxProps}
-      >
-        <Image
-          {...imageProps}
-          style={[styles.image, imageStyle]}
-          source={{ uri: currentMessage.image }}
-        />
-      </Lightbox>
+      <ZoomImage
+        source={{uri: currentMessage.image}}
+        imgStyle={styles.image}
+        duration={200}
+        easingFunc={Easing.ease}
+      />
     </View>
   );
 }
@@ -35,9 +30,7 @@ const styles = StyleSheet.create({
   image: {
     width: 150,
     height: 100,
-    borderRadius: 13,
-    margin: 3,
-    resizeMode: 'cover',
+    borderRadius: 3
   },
   imageActive: {
     flex: 1,
