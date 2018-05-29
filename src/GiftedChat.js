@@ -222,9 +222,9 @@ class GiftedChat extends React.Component {
       : this.props.minInputToolbarHeight;
   }
   calculateInputToolbarHeight(composerHeight) {
-    if (!this.props.shouldRenderInputToolbar) {
-      return 0;
-    }
+    // if (!this.props.shouldRenderInputToolbar) {
+    //   return 0;
+    // }
     return composerHeight + (this.getMinInputToolbarHeight() - MIN_COMPOSER_HEIGHT);
   }
 
@@ -448,11 +448,11 @@ class GiftedChat extends React.Component {
         maxLength: this.getIsTypingDisabled() ? 0 : this.props.maxInputLength,
       },
     };
+    if (!this.props.shouldRenderInputToolbar) {
+      return this.props.renderMute;
+    }
     if (this.props.renderInputToolbar) {
       return this.props.renderInputToolbar(inputToolbarProps);
-    }
-    if (!this.props.shouldRenderInputToolbar) {
-      return null;
     }
     return (
       <InputToolbar
